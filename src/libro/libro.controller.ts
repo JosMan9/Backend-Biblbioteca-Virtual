@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
-import { get } from 'http';
 import { LibroService } from './libro.service';
 import { LibroLib } from './lib/libro.lib';
 

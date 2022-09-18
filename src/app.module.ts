@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } from '../config/constants';
 import { LibroModule } from './libro/libro.module';
+import { UsuarioModule } from './usuario/usuario.module';
+import { PrestamoModule } from './prestamo/prestamo.module';
 
 @Module({
   imports: [ConfigModule.forRoot( {
@@ -22,11 +24,13 @@ import { LibroModule } from './libro/libro.module';
       database: configService.get<string>(DB_DATABASE),
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-      logging: false,
+      logging: true,
     }),
     inject: [ConfigService],
   }),
-  LibroModule
+  LibroModule,
+  UsuarioModule,
+  PrestamoModule
 ],
   controllers: [AppController],
   providers: [AppService],
